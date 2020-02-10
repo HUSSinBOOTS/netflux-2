@@ -5,3 +5,8 @@ before_install:
   - docker build -t netflux .
 script:
  - docker run netflux npm run test -- --coverage
+deploy:
+   provider: script
+   script: bash deploy.sh
+   on:
+     branch: master
